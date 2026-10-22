@@ -1,0 +1,103 @@
+{
+  "label": "Synthetic learning case \u2014 not employer data",
+  "products": [
+    {
+      "product_id": "FG-A",
+      "demand_qty": 40
+    },
+    {
+      "product_id": "FG-B",
+      "demand_qty": 30
+    },
+    {
+      "product_id": "FG-C",
+      "demand_qty": 20
+    }
+  ],
+  "bom": [
+    {
+      "product_id": "FG-A",
+      "component_id": "C01",
+      "qty_per": 2
+    },
+    {
+      "product_id": "FG-A",
+      "component_id": "C02",
+      "qty_per": 1
+    },
+    {
+      "product_id": "FG-A",
+      "component_id": "C03",
+      "qty_per": 4
+    },
+    {
+      "product_id": "FG-B",
+      "component_id": "C01",
+      "qty_per": 3
+    },
+    {
+      "product_id": "FG-B",
+      "component_id": "C04",
+      "qty_per": 2
+    },
+    {
+      "product_id": "FG-B",
+      "component_id": "C05",
+      "qty_per": 1
+    },
+    {
+      "product_id": "FG-C",
+      "component_id": "C02",
+      "qty_per": 2
+    },
+    {
+      "product_id": "FG-C",
+      "component_id": "C06",
+      "qty_per": 1
+    }
+  ],
+  "parts": [
+    {
+      "component_id": "C01",
+      "name": "Bracket",
+      "on_hand": 100,
+      "reserved": 10,
+      "unit_cost": 12
+    },
+    {
+      "component_id": "C02",
+      "name": "Drive unit",
+      "on_hand": 100,
+      "reserved": 0,
+      "unit_cost": 25
+    },
+    {
+      "component_id": "C03",
+      "name": "Fastener",
+      "on_hand": 200,
+      "reserved": 20,
+      "unit_cost": 1
+    },
+    {
+      "component_id": "C04",
+      "name": "Housing",
+      "on_hand": 70,
+      "reserved": 0,
+      "unit_cost": 10
+    },
+    {
+      "component_id": "C05",
+      "name": "Control module",
+      "on_hand": 25,
+      "reserved": 5,
+      "unit_cost": 50
+    },
+    {
+      "component_id": "C06",
+      "name": "Support kit",
+      "on_hand": 30,
+      "reserved": 0,
+      "unit_cost": 15
+    }
+  ]
+}

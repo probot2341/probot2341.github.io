@@ -1,0 +1,75 @@
+{
+  "status": "Prepared learning templates only \u2014 not imported to or executed in Azure DevOps",
+  "process": "Illustrative Agile backlog; adapt field names to the organization process",
+  "stories": [
+    {
+      "id": "US-01",
+      "title": "Calculate consolidated component requirements",
+      "userStory": "As a planner, I want requirements aggregated across all products so shared components are not counted independently against the same stock.",
+      "acceptanceCriteria": [
+        "At base demand C01 required quantity is 40\u00d72 +30\u00d73 =170.",
+        "Each component has one consolidated row before comparison with available stock.",
+        "Unknown or duplicate product-component references are rejected."
+      ],
+      "technicalTests": [
+        "TEST-01 expected base requirements",
+        "TEST-02 shared component aggregation",
+        "TEST-03 invalid input rejection"
+      ],
+      "proposedUAT": [
+        "UAT-01 planner checks base input and C01 total against manual calculation"
+      ]
+    },
+    {
+      "id": "US-02",
+      "title": "Identify shortage exposure",
+      "userStory": "As a planner, I want shortages based on on-hand stock less reservations so I can identify which components need investigation.",
+      "acceptanceCriteria": [
+        "Available C01 quantity is100\u221210 =90; shortage max(170\u221290,0)=80.",
+        "Base scenario has2 shortage components and shortage value1460 USD.",
+        "Zero shortage has0 exposure; no negative shortages are displayed."
+      ],
+      "technicalTests": [
+        "TEST-04 reservation treatment",
+        "TEST-05 shortage value",
+        "TEST-06 sufficient stock"
+      ],
+      "proposedUAT": [
+        "UAT-02 planner checks C01 and C05 and inspects affected assemblies"
+      ]
+    },
+    {
+      "id": "US-03",
+      "title": "Explain KPIs and scope before decisions",
+      "userStory": "As a decision-maker, I want KPI definitions and limitations visible so I can interpret the planning snapshot correctly.",
+      "acceptanceCriteria": [
+        "The page identifies synthetic data and the scenario demand scale.",
+        "Shortage value is labeled planning exposure, not savings or approved spend.",
+        "Affected products identifies exposure under the combined plan, not a feasible allocation schedule."
+      ],
+      "technicalTests": [
+        "TEST-07 API returns JSON and rejects unsupported methods"
+      ],
+      "proposedUAT": [
+        "UAT-03 stakeholder reviews labels and requests clarification where needed"
+      ]
+    }
+  ],
+  "workflow": [
+    "Intake: define planner problem and decision",
+    "Refinement: agree inputs, units, rules, acceptance criteria and dependencies",
+    "Prioritization: assess business impact, urgency, effort, risk and readiness with Product Owner",
+    "Development: implement and review calculation/API",
+    "Testing: run technical checks and record evidence",
+    "Proposed UAT: ask representative business users to execute approved scenarios",
+    "Release decision: authorized owner reviews results and open risks",
+    "Stabilization: verify refresh/data issues, document corrections and update guidance"
+  ],
+  "productionLimits": [
+    "No authenticated production application",
+    "No actual Power BI .pbix or service deployment",
+    "No Azure DevOps organization or completed board usage",
+    "No real business UAT/signoff/release",
+    "Single-level static BOM snapshot; no lead-time netting, substitutions, scrap factors, effectivity or production scheduling"
+  ]
+}

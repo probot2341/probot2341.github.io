@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A new educational BOM-to-KPI case with synthetic data, a local Python/Django prototype, and proposed Power BI and Azure DevOps designs."><title>BOM to KPI Learning Case | Srivanth Ganesh</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><style>
+.learning-wrap{width:min(1100px,calc(100% - 48px));margin:auto}.learning-hero{padding:65px 0 40px}.learning-hero h1{font-size:59px;max-width:850px;margin:20px 0}.learning-hero>p{max-width:800px;font-size:16px;line-height:1.8}.learning-label{display:inline-block;font-size:11px;background:#e5ebd9;border:1px solid #bdcbb1;color:var(--green);padding:5px 12px;border-radius:20px}.learning-status{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:24px;border:1px solid var(--line);background:#fff;margin:20px 0 40px}.learning-status p{font-size:12px;line-height:1.9}.learning-status b{color:var(--green)}.learning-section{padding:36px 0;border-top:1px solid var(--line)}.learning-section h2{font-size:34px;margin-bottom:22px}.learning-section h3{font-size:17px;margin:23px 0 10px}.learning-section p,.learning-section li{font-size:14px;line-height:1.9}.learning-steps{padding-left:22px}.learning-steps li{padding-left:6px;margin:12px 0}.kpi-board{background:white;border:1px solid var(--line);border-radius:4px;padding:25px}.learning-controls{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:24px}.learning-controls label{font-size:12px;display:flex;align-items:center;gap:12px}.learning-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:25px}.learning-kpis>div{border-top:3px solid var(--green);padding:15px;background:#f0f3e9}.learning-kpis strong{font:30px var(--serif);color:var(--green);display:block}.learning-kpis span{display:block;font-size:10px;color:var(--muted);margin-top:7px}.learning-table{padding:0;overflow:auto}.learning-table table{min-width:650px}.learning-footnote{font-size:11px!important;margin-top:17px}.learning-formula{background:#e9eddf;padding:18px 22px;border-radius:4px;font-size:13px;margin:18px 0}.learning-section details{border-bottom:1px solid var(--line)}.learning-section summary{font-size:15px}.learning-section details>div{padding:0 22px 20px 0}.learning-section pre{overflow-x:auto;background:#e9ede3;padding:18px;font:12px/1.9 Consolas,'Courier New',monospace;color:#244237;border-radius:4px}.learning-section .scope-note{font-size:12px}.learning-source-links a{text-decoration:underline;text-underline-offset:4px}.learning-section .star-draft{border-top:2px solid var(--green);padding-top:20px}.learning-section .star-draft p{margin-top:12px}.learning-end{padding:30px 0 50px;display:flex;gap:20px;flex-wrap:wrap}.learning-section .example-table{white-space:normal;font-size:12px}.learning-section .example-table td,.learning-section .example-table th{padding:12px;border:1px solid var(--line)}.learning-section .example-table td:first-child{font-weight:400}.learning-section .example-table small{font-size:10px}.method-status{font-size:10px;color:var(--orange);font-weight:700;letter-spacing:1px;margin-bottom:12px}.learning-section .trace-note{font-size:11px;line-height:1.8}.learning-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}.learning-section code{font-family:Consolas,'Courier New',monospace;font-size:.9em}.learning-section a{color:var(--green)}@media(max-width:700px){.learning-wrap{width:calc(100% - 36px)}.learning-hero{padding-top:40px}.learning-hero h1{font-size:43px}.learning-status,.learning-grid{grid-template-columns:1fr}.learning-controls{align-items:start;flex-direction:column}.learning-controls label{flex-wrap:wrap}.learning-kpis{grid-template-columns:1fr 1fr;gap:12px}.kpi-board{padding:17px}.learning-kpis strong{font-size:26px}.learning-section h2{font-size:29px}.learning-section p,.learning-section li{font-size:13px}.learning-kpis span{font-size:9px}.learning-section pre{font-size:11px}}@media print{.learning-wrap{width:100%}.learning-hero{padding:20px 0}.learning-hero h1{font-size:34px}.learning-section{padding:20px 0}.learning-kpis{grid-template-columns:repeat(4,1fr)}.learning-status{margin-bottom:20px}.learning-controls select,.learning-end{display:none}.learning-section details>div{display:block!important}.kpi-board{break-inside:avoid}}
+</style></head><body><header class="header"><a class="wordmark" href="index.html"><span class="monogram">sg.</span><span>Srivanth Ganesh</span></a><a class="text-link" href="index.html#experience">← Back to portfolio</a></header><main class="learning-wrap">
+<section class="learning-hero"><span class="learning-label">New learning project · synthetic data · October 2026</span><h1>From a BOM<br>to a planning decision.</h1><p>A practical exercise in connecting component data, business rules, KPIs, requirements, and tests. Prepared with AI assistance for learning and interview discussion; this is separate from my employer experience.</p></section>
+<div class="learning-status"><p><b>Included in this learning case</b><br>A runnable local Python/Django calculation API, a browser demonstration, synthetic data, and documented requirements and test scenarios.</p><p><b>Designs to explore next</b><br>Power BI measures and report structure, plus an Azure DevOps workflow outline. No Power BI report or Azure DevOps board has been deployed. Proposed business UAT has not been performed.</p></div>
+<section class="learning-section"><div class="eyebrow">01 / THE BUSINESS QUESTION</div><h2>Which components put the plan at risk?</h2><p>A fictional planner needs to check whether available material covers a three-product production plan. The BOM gives the quantity of each component per product. The planner also needs demand, inventory, reservations, and unit costs to understand the shortage exposure.</p><ol class="learning-steps"><li><b>BOM:</b> what parts each product needs, and how many.</li><li><b>Demand:</b> how many finished products the plan calls for.</li><li><b>Inventory:</b> how much stock is on hand and already reserved.</li><li><b>Part costs:</b> a consistent basis for estimating shortage value.</li><li><b>Decision:</b> investigate constrained components and affected products, then confirm stock, purchase-order timing, and planning priorities with the owners.</li></ol><p class="scope-note">This is one flat, single-level snapshot. It does not model dated supply, alternate parts, scrap, safety stock, multi-level BOMs, or a feasible production allocation.</p></section>
+<section class="learning-section" id="dashboard"><div class="eyebrow">02 / BROWSER DEMONSTRATION</div><h2>Try the planning snapshot.</h2><div class="kpi-board"><div class="learning-controls"><span class="small-label">FICTIONAL ASSEMBLIES FG-A / FG-B / FG-C</span><label for="demand-scenario">Demand scenario<select id="demand-scenario"><option value="1">Base demand</option><option value="0.8">Demand −20%</option><option value="1.2">Demand +20%</option></select></label></div><div class="learning-kpis" id="learning-kpis" aria-live="polite"></div><div class="learning-table"><table><caption class="sr-only">Consolidated synthetic component requirements, availability, and shortages</caption><thead><tr><th scope="col">Component</th><th scope="col">Required</th><th scope="col">Available</th><th scope="col">Short</th><th scope="col">Unit cost</th><th scope="col">Shortage value</th></tr></thead><tbody id="learning-rows"></tbody></table></div><p id="product-exposure" class="learning-footnote"></p><p class="learning-footnote"><b>Interpretation:</b> shortage value is a planning exposure estimate, not realized savings or approved spend. Affected assemblies means exposure under the combined plan; shared stock has not been allocated to a production schedule.</p></div><p class="learning-footnote">The public page calculates this demonstration in the browser. The downloadable source includes a local Django API; GitHub Pages does not run the Python service.</p></section>
+<section class="learning-section"><div class="eyebrow">03 / FOLLOW ONE NUMBER</div><h2>Why component C01 is short by 80.</h2><div class="learning-grid"><div><h3>Required quantity</h3><p>FG-A needs 2 brackets each, and demand is 40 units. FG-B needs 3 brackets each, and demand is 30 units.</p><div class="learning-formula">Required C01 = (40 × 2) + (30 × 3) = <b>170</b></div><p>Aggregate the requirement across all products before comparing it with stock. Otherwise the same stock could be counted more than once.</p></div><div><h3>Availability and exposure</h3><p>C01 has 100 on hand and 10 reserved. This leaves 90 available against the combined requirement.</p><div class="learning-formula">Available = 100 − 10 = <b>90</b><br>Shortage = max(170 − 90, 0) = <b>80</b><br>Shortage value = 80 × $12 = <b>$960</b></div><p>C05 adds another $500 of shortage exposure. The base snapshot therefore totals <b>$1,460</b>.</p></div></div></section>
+<section class="learning-section"><div class="eyebrow">04 / THE TECHNICAL ROLES</div><h2>What each tool contributes.</h2>
+<details><summary>Python — validate and calculate</summary><div><p>Python checks the synthetic input, consolidates component requirements, subtracts reservations, and calculates shortages and exposure. The local prototype rejects unknown references, duplicate BOM lines, invalid quantities, and inconsistent stock values.</p><pre>required[component] += product_demand * quantity_per
+available = on_hand - reserved
+shortage = max(required - available, 0)
+shortage_value = shortage * unit_cost</pre><p>The prototype has focused technical tests. These check calculation behavior; they are separate from business acceptance testing.</p></div></details>
+<details><summary>Django — expose the calculation as a local API</summary><div><p>Django provides a read-only HTTP endpoint so another application can request the calculated snapshot as JSON. This keeps the business rule in one place rather than copying spreadsheet logic into multiple reports.</p><pre>GET http://127.0.0.1:8770/api/kpis/
+→ component requirements, shortages, product exposure, KPI totals</pre><p>The included service is a local educational prototype with synthetic inputs. It does not include production authentication, an ERP connection, a managed database, scheduling, or a deployed Azure environment.</p></div></details>
+<details><summary>Power BI — proposed report design</summary><div><div class="method-status">DESIGN GUIDE · NOT A DEPLOYED POWER BI REPORT</div><p>The proposed report imports the consolidated component KPI table from the local API or an exported snapshot. One component appears once in that table. Cards show the shortage count and exposure value; a table shows the constrained components. A business owner would agree the refresh timing, metric definitions, filters, and permissions before production use.</p><p>Illustrative Power Query import for the local service:</p><pre>let
+    Source = Json.Document(Web.Contents("http://127.0.0.1:8770/api/kpis/")),
+    Components = Table.FromRecords(Source[components])
+in
+    Components</pre><p>After naming that imported table <code>ComponentKPI</code>, the proposed DAX measures are:</p><pre>Short Parts =
+COUNTROWS(FILTER(ComponentKPI, ComponentKPI[shortage_qty] &gt; 0))
+
+Shortage Value =
+SUMX(ComponentKPI,
+    ComponentKPI[shortage_qty] * ComponentKPI[unit_cost])</pre><p>These are design examples. No <code>.pbix</code> report, Power BI refresh configuration, or Power BI Service publication is included.</p></div></details>
+<details><summary>Azure DevOps — proposed delivery workflow</summary><div><div class="method-status">PREPARED WORKFLOW · NO AZURE DEVOPS BOARD USED</div><p>The prepared backlog separates the calculation, shortage interpretation, and KPI explanation into small stories. In Azure Boards, these could be refined with a Product Owner, linked to tasks and test evidence, and tracked through the team’s delivery process.</p><p>Suggested sequence: intake → refinement → prioritization → development → technical testing → agreed business UAT → authorized release decision → stabilization. This is a learning workflow, not a claim of prior Agile or Azure DevOps delivery.</p><p>Example story: <b>As a planner, I want component requirements combined across products so that shared stock is not counted separately against each product.</b></p><p>Example acceptance criterion: at base demand, C01 required quantity must equal 170 before comparison with available stock. Unknown references and duplicate product-component rows must be rejected.</p></div></details></section>
+<section class="learning-section"><div class="eyebrow">05 / REQUIREMENTS THROUGH VALIDATION</div><h2>Make the rule traceable.</h2><div class="learning-table"><table class="example-table"><thead><tr><th scope="col">Business need</th><th scope="col">Story and acceptance condition</th><th scope="col">Validation</th></tr></thead><tbody><tr><td>Understand combined material requirements.</td><td><b>US-01:</b> consolidate shared components. C01 must total170 at base demand.</td><td>Technical calculation checks; proposed UAT-01 manual planner comparison.</td></tr><tr><td>Identify shortage exposure using available stock.</td><td><b>US-02:</b> subtract reservations. C01 shortage80, C05 shortage10; base exposure$1,460.</td><td>Technical reservation and value checks; proposed UAT-02 investigation of affected products.</td></tr><tr><td>Make KPIs understandable before a decision.</td><td><b>US-03:</b> show scenario and limitations. Never label shortage value as savings.</td><td>Proposed UAT-03 stakeholder review of definitions, scope, and labels.</td></tr></tbody></table></div><p class="trace-note">The technical tests belong to the local prototype. The UAT scenarios above are prepared for learning and have not been executed by business users or signed off. A real release would require approved scope, authorized data, test evidence, defect review, and the team’s release decision.</p></section>
+<section class="learning-section"><div class="eyebrow">06 / EXPLAIN THE CASE HONESTLY</div><h2>A STAR answer for this learning project.</h2><div class="star-draft"><p><b>Situation:</b> While preparing for a product-analysis role, I wanted to understand how BOM data could support a practical planning decision.</p><p><b>Task:</b> I prepared a small learning case that links data rules, KPI definitions, and validation, without using employer information.</p><p><b>Action:</b> The case uses synthetic BOM, demand, inventory, and cost data. It includes a Python/Django prototype and browser demonstration, with proposed Power BI measures and an Azure DevOps-style requirements and test workflow.</p><p><b>Result:</b> I can follow the base calculation from component demand to two shortage components and $1,460 of planning exposure, and explain how the business rule connects to acceptance criteria. This is a new learning project, not prior employer delivery.</p></div><p class="scope-note" style="margin-top:20px">Prepared with AI assistance. Before discussing it in an interview, run the prototype, check the calculations, and explain the design choices and limitations in your own words.</p></section>
+<section class="learning-section"><h2>Source and learning references</h2><p class="learning-source-links"><a href="learning-data.json" download>Download synthetic inputs</a> · <a href="learning-workflow.json" download>Download learning backlog and workflow</a> · <a href="bom-kpi-learning.zip" download>Download local prototype and guide</a></p><p class="learning-source-links learning-footnote">Technical references: <a href="https://docs.djangoproject.com/en/5.2/intro/tutorial01/" target="_blank" rel="noopener">Django tutorial</a> · <a href="https://learn.microsoft.com/en-us/power-bi/guidance/star-schema" target="_blank" rel="noopener">Power BI data modeling</a> · <a href="https://learn.microsoft.com/en-us/azure/devops/boards/queries/import-work-items-from-csv?view=azure-devops" target="_blank" rel="noopener">Azure Boards work items</a>.</p></section><div class="learning-end"><a class="button primary" href="index.html#experience">Back to experience →</a><button class="filter" id="print-portfolio">Print this learning case</button></div>
+</main><script type="application/json" id="case-data">{
+  "label": "Synthetic learning case \u2014 not employer data",
+  "products": [
+    {
+      "product_id": "FG-A",
+      "demand_qty": 40
+    },
+    {
+      "product_id": "FG-B",
+      "demand_qty": 30
+    },
+    {
+      "product_id": "FG-C",
+      "demand_qty": 20
+    }
+  ],
+  "bom": [
+    {
+      "product_id": "FG-A",
+      "component_id": "C01",
+      "qty_per": 2
+    },
+    {
+      "product_id": "FG-A",
+      "component_id": "C02",
+      "qty_per": 1
+    },
+    {
+      "product_id": "FG-A",
+      "component_id": "C03",
+      "qty_per": 4
+    },
+    {
+      "product_id": "FG-B",
+      "component_id": "C01",
+      "qty_per": 3
+    },
+    {
+      "product_id": "FG-B",
+      "component_id": "C04",
+      "qty_per": 2
+    },
+    {
+      "product_id": "FG-B",
+      "component_id": "C05",
+      "qty_per": 1
+    },
+    {
+      "product_id": "FG-C",
+      "component_id": "C02",
+      "qty_per": 2
+    },
+    {
+      "product_id": "FG-C",
+      "component_id": "C06",
+      "qty_per": 1
+    }
+  ],
+  "parts": [
+    {
+      "component_id": "C01",
+      "name": "Bracket",
+      "on_hand": 100,
+      "reserved": 10,
+      "unit_cost": 12
+    },
+    {
+      "component_id": "C02",
+      "name": "Drive unit",
+      "on_hand": 100,
+      "reserved": 0,
+      "unit_cost": 25
+    },
+    {
+      "component_id": "C03",
+      "name": "Fastener",
+      "on_hand": 200,
+      "reserved": 20,
+      "unit_cost": 1
+    },
+    {
+      "component_id": "C04",
+      "name": "Housing",
+      "on_hand": 70,
+      "reserved": 0,
+      "unit_cost": 10
+    },
+    {
+      "component_id": "C05",
+      "name": "Control module",
+      "on_hand": 25,
+      "reserved": 5,
+      "unit_cost": 50
+    },
+    {
+      "component_id": "C06",
+      "name": "Support kit",
+      "on_hand": 30,
+      "reserved": 0,
+      "unit_cost": 15
+    }
+  ]
+}</script><script src="learning.js"></script><script src="app.js"></script></body></html>
