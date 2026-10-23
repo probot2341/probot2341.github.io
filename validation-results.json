@@ -1,0 +1,271 @@
+{
+  "verified_at_utc": "2026-10-23T00:44:40.271409+00:00",
+  "data_scope": "Independent illustrative case study; fixed sample inputs",
+  "input_sha256": "02496255d31216f06c63789a79d6b9620527fe16ed8b737ad0070483abb8002d",
+  "browser_calculation_sha256": "75cf96f0da703d4ded35d8d9f292c324978754db3379fbff7901d4297922fa4a",
+  "python_test_evidence": "Technical_Test_Report.txt",
+  "cross_language_checks": {
+    "offered_scenarios": 3,
+    "edge_cases": 2,
+    "result": "passed"
+  },
+  "rounding": "Product demand rounds to whole units; .5 rounds up",
+  "reservations": "Committed to other demand outside the modeled plan",
+  "scenarios": {
+    "base": {
+      "status": "passed",
+      "components": [
+        {
+          "component_id": "C01",
+          "name": "Bracket",
+          "required_qty": 170,
+          "available_qty": 90,
+          "shortage_qty": 80,
+          "unit_cost": 12,
+          "shortage_value": 960
+        },
+        {
+          "component_id": "C02",
+          "name": "Drive unit",
+          "required_qty": 80,
+          "available_qty": 100,
+          "shortage_qty": 0,
+          "unit_cost": 25,
+          "shortage_value": 0
+        },
+        {
+          "component_id": "C03",
+          "name": "Fastener",
+          "required_qty": 160,
+          "available_qty": 180,
+          "shortage_qty": 0,
+          "unit_cost": 1,
+          "shortage_value": 0
+        },
+        {
+          "component_id": "C04",
+          "name": "Housing",
+          "required_qty": 60,
+          "available_qty": 70,
+          "shortage_qty": 0,
+          "unit_cost": 10,
+          "shortage_value": 0
+        },
+        {
+          "component_id": "C05",
+          "name": "Control module",
+          "required_qty": 30,
+          "available_qty": 20,
+          "shortage_qty": 10,
+          "unit_cost": 50,
+          "shortage_value": 500
+        },
+        {
+          "component_id": "C06",
+          "name": "Support kit",
+          "required_qty": 20,
+          "available_qty": 30,
+          "shortage_qty": 0,
+          "unit_cost": 15,
+          "shortage_value": 0
+        }
+      ],
+      "products": [
+        {
+          "product_id": "FG-A",
+          "demand_qty": 40,
+          "has_shortage": true
+        },
+        {
+          "product_id": "FG-B",
+          "demand_qty": 30,
+          "has_shortage": true
+        },
+        {
+          "product_id": "FG-C",
+          "demand_qty": 20,
+          "has_shortage": false
+        }
+      ],
+      "kpis": {
+        "bom_lines": 8,
+        "component_count": 6,
+        "shortage_parts": 2,
+        "affected_products": 2,
+        "product_count": 3,
+        "products_without_shortage_exposure": 1,
+        "shortage_value": 1460
+      }
+    },
+    "low": {
+      "status": "passed",
+      "components": [
+        {
+          "component_id": "C01",
+          "name": "Bracket",
+          "required_qty": 136,
+          "available_qty": 90,
+          "shortage_qty": 46,
+          "unit_cost": 12,
+          "shortage_value": 552
+        },
+        {
+          "component_id": "C02",
+          "name": "Drive unit",
+          "required_qty": 64,
+          "available_qty": 100,
+          "shortage_qty": 0,
+          "unit_cost": 25,
+          "shortage_value": 0
+        },
+        {
+          "component_id": "C03",
+          "name": "Fastener",
+          "required_qty": 128,
+          "available_qty": 180,
+          "shortage_qty": 0,
+          "unit_cost": 1,
+          "shortage_value": 0
+        },
+        {
+          "component_id": "C04",
+          "name": "Housing",
+          "required_qty": 48,
+          "available_qty": 70,
+          "shortage_qty": 0,
+          "unit_cost": 10,
+          "shortage_value": 0
+        },
+        {
+          "component_id": "C05",
+          "name": "Control module",
+          "required_qty": 24,
+          "available_qty": 20,
+          "shortage_qty": 4,
+          "unit_cost": 50,
+          "shortage_value": 200
+        },
+        {
+          "component_id": "C06",
+          "name": "Support kit",
+          "required_qty": 16,
+          "available_qty": 30,
+          "shortage_qty": 0,
+          "unit_cost": 15,
+          "shortage_value": 0
+        }
+      ],
+      "products": [
+        {
+          "product_id": "FG-A",
+          "demand_qty": 32,
+          "has_shortage": true
+        },
+        {
+          "product_id": "FG-B",
+          "demand_qty": 24,
+          "has_shortage": true
+        },
+        {
+          "product_id": "FG-C",
+          "demand_qty": 16,
+          "has_shortage": false
+        }
+      ],
+      "kpis": {
+        "bom_lines": 8,
+        "component_count": 6,
+        "shortage_parts": 2,
+        "affected_products": 2,
+        "product_count": 3,
+        "products_without_shortage_exposure": 1,
+        "shortage_value": 752
+      }
+    },
+    "high": {
+      "status": "passed",
+      "components": [
+        {
+          "component_id": "C01",
+          "name": "Bracket",
+          "required_qty": 204,
+          "available_qty": 90,
+          "shortage_qty": 114,
+          "unit_cost": 12,
+          "shortage_value": 1368
+        },
+        {
+          "component_id": "C02",
+          "name": "Drive unit",
+          "required_qty": 96,
+          "available_qty": 100,
+          "shortage_qty": 0,
+          "unit_cost": 25,
+          "shortage_value": 0
+        },
+        {
+          "component_id": "C03",
+          "name": "Fastener",
+          "required_qty": 192,
+          "available_qty": 180,
+          "shortage_qty": 12,
+          "unit_cost": 1,
+          "shortage_value": 12
+        },
+        {
+          "component_id": "C04",
+          "name": "Housing",
+          "required_qty": 72,
+          "available_qty": 70,
+          "shortage_qty": 2,
+          "unit_cost": 10,
+          "shortage_value": 20
+        },
+        {
+          "component_id": "C05",
+          "name": "Control module",
+          "required_qty": 36,
+          "available_qty": 20,
+          "shortage_qty": 16,
+          "unit_cost": 50,
+          "shortage_value": 800
+        },
+        {
+          "component_id": "C06",
+          "name": "Support kit",
+          "required_qty": 24,
+          "available_qty": 30,
+          "shortage_qty": 0,
+          "unit_cost": 15,
+          "shortage_value": 0
+        }
+      ],
+      "products": [
+        {
+          "product_id": "FG-A",
+          "demand_qty": 48,
+          "has_shortage": true
+        },
+        {
+          "product_id": "FG-B",
+          "demand_qty": 36,
+          "has_shortage": true
+        },
+        {
+          "product_id": "FG-C",
+          "demand_qty": 24,
+          "has_shortage": false
+        }
+      ],
+      "kpis": {
+        "bom_lines": 8,
+        "component_count": 6,
+        "shortage_parts": 4,
+        "affected_products": 2,
+        "product_count": 3,
+        "products_without_shortage_exposure": 1,
+        "shortage_value": 2200
+      }
+    }
+  }
+}

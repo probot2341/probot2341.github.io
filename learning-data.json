@@ -1,5 +1,7 @@
 {
-  "label": "Synthetic learning case \u2014 not employer data",
+  "revision": "B",
+  "revision_status": "approved",
+  "currency": "USD",
   "products": [
     {
       "product_id": "FG-A",
@@ -56,48 +58,61 @@
       "qty_per": 1
     }
   ],
-  "parts": [
+  "components": [
     {
       "component_id": "C01",
-      "name": "Bracket",
+      "unit": "EA",
       "on_hand": 100,
       "reserved": 10,
-      "unit_cost": 12
+      "unit_cost": 12,
+      "name": "Bracket"
     },
     {
       "component_id": "C02",
-      "name": "Drive unit",
+      "unit": "EA",
       "on_hand": 100,
       "reserved": 0,
-      "unit_cost": 25
+      "unit_cost": 25,
+      "name": "Drive unit"
     },
     {
       "component_id": "C03",
-      "name": "Fastener",
+      "unit": "EA",
       "on_hand": 200,
       "reserved": 20,
-      "unit_cost": 1
+      "unit_cost": 1,
+      "name": "Fastener"
     },
     {
       "component_id": "C04",
-      "name": "Housing",
+      "unit": "EA",
       "on_hand": 70,
       "reserved": 0,
-      "unit_cost": 10
+      "unit_cost": 10,
+      "name": "Housing"
     },
     {
       "component_id": "C05",
-      "name": "Control module",
+      "unit": "EA",
       "on_hand": 25,
       "reserved": 5,
-      "unit_cost": 50
+      "unit_cost": 50,
+      "name": "Control module"
     },
     {
       "component_id": "C06",
-      "name": "Support kit",
+      "unit": "EA",
       "on_hand": 30,
       "reserved": 0,
-      "unit_cost": 15
+      "unit_cost": 15,
+      "name": "Support kit"
     }
-  ]
+  ],
+  "label": "Illustrative manufacturing case-study data",
+  "assumptions": {
+    "stock_pool": "One shared inventory snapshot for all three products",
+    "reservations": "Stock committed to other demand outside this modeled plan",
+    "units": "Each (EA); scenario product demand rounds to the nearest whole unit, with .5 rounded up",
+    "cost_basis": "Illustrative USD unit costs; shortage value is quantity times unit cost, not lost revenue or savings"
+  }
 }

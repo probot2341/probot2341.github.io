@@ -1,5 +1,5 @@
 {
-  "status": "Prepared learning templates only \u2014 not imported to or executed in Azure DevOps",
+  "status": "Requirements and proposed delivery templates for an independent case study; not imported into Azure DevOps",
   "process": "Illustrative Agile backlog; adapt field names to the organization process",
   "stories": [
     {
@@ -7,14 +7,13 @@
       "title": "Calculate consolidated component requirements",
       "userStory": "As a planner, I want requirements aggregated across all products so shared components are not counted independently against the same stock.",
       "acceptanceCriteria": [
-        "At base demand C01 required quantity is 40\u00d72 +30\u00d73 =170.",
+        "At base demand C01 required quantity is 40×2 +30×3 =170.",
         "Each component has one consolidated row before comparison with available stock.",
         "Unknown or duplicate product-component references are rejected."
       ],
       "technicalTests": [
-        "TEST-01 expected base requirements",
-        "TEST-02 shared component aggregation",
-        "TEST-03 invalid input rejection"
+        "bom_demo.tests.BomTests.test_api_expected_snapshot_and_shared_component_aggregation",
+        "bom_demo.tests.BomTests.test_missing_unknown_reference_and_duplicate_bom_are_rejected"
       ],
       "proposedUAT": [
         "UAT-01 planner checks base input and C01 total against manual calculation"
@@ -25,14 +24,15 @@
       "title": "Identify shortage exposure",
       "userStory": "As a planner, I want shortages based on on-hand stock less reservations so I can identify which components need investigation.",
       "acceptanceCriteria": [
-        "Available C01 quantity is100\u221210 =90; shortage max(170\u221290,0)=80.",
-        "Base scenario has2 shortage components and shortage value1460 USD.",
-        "Zero shortage has0 exposure; no negative shortages are displayed."
+        "Reservations are stock committed outside this modeled production plan.",
+        "Base C01 required170, available90, shortage80; C05 shortage10.",
+        "Base/low/high shortage values are1460/752/2200 USD.",
+        "Scale each product demand from original inputs, rounding whole units with .5 up."
       ],
       "technicalTests": [
-        "TEST-04 reservation treatment",
-        "TEST-05 shortage value",
-        "TEST-06 sufficient stock"
+        "bom_demo.tests.BomTests.test_api_all_scenarios_match_component_snapshots",
+        "bom_demo.tests.BomTests.test_scenario_rounding_uses_half_up_and_preserves_input",
+        "verify_scenarios.py: component, product and KPI parity across all three scenarios"
       ],
       "proposedUAT": [
         "UAT-02 planner checks C01 and C05 and inspects affected assemblies"
@@ -43,12 +43,14 @@
       "title": "Explain KPIs and scope before decisions",
       "userStory": "As a decision-maker, I want KPI definitions and limitations visible so I can interpret the planning snapshot correctly.",
       "acceptanceCriteria": [
-        "The page identifies synthetic data and the scenario demand scale.",
+        "The page identifies illustrative sample data and the selected demand scenario.",
         "Shortage value is labeled planning exposure, not savings or approved spend.",
         "Affected products identifies exposure under the combined plan, not a feasible allocation schedule."
       ],
       "technicalTests": [
-        "TEST-07 API returns JSON and rejects unsupported methods"
+        "bom_demo.tests.BomTests.test_read_only_endpoints_and_health",
+        "bom_demo.tests.BomTests.test_unsupported_scenario_returns_400",
+        "bom_demo.tests.BomTests.test_zero_demand_product_is_not_exposed_to_shared_component_shortage"
       ],
       "proposedUAT": [
         "UAT-03 stakeholder reviews labels and requests clarification where needed"
@@ -71,5 +73,10 @@
     "No Azure DevOps organization or completed board usage",
     "No real business UAT/signoff/release",
     "Single-level static BOM snapshot; no lead-time netting, substitutions, scrap factors, effectivity or production scheduling"
-  ]
+  ],
+  "evidence": {
+    "python_tests": "Technical_Test_Report.txt in source download",
+    "scenario_checks": "validation-results.json on site; Scenario_Verification.json in source download",
+    "business_UAT": "Proposed; not executed"
+  }
 }
